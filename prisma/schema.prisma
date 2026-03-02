@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String      @id @default(cuid())
+  name      String?
+  email     String?     @unique
+  password  String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  faxs      FaxRecord[]
+}
+
+model Pharmacy {
+  id        String      @id // 암호화요양기호
+  name      String      // 요양기관명
+  typeCode  String?     // 종별코드
+  typeDesc  String?     // 종별코드명
+  cityCode  String?     // 시도코드
+  cityDesc  String?     // 시도코드명
+  sigunguCode String?   // 시군구코드
+  sigunguDesc String?   // 시군구코드명
+  dong      String?     // 읍면동
+  zipCode   String?     // 우편번호
+  address   String?     // 주소
+  phone     String?     // 전화번호
+  openDate  String?     // 개설일자
+  lat       Float?      // 좌표(X) -> 위도 (경도/위도 확인 필요, CSV X/Y 매핑)
+  lng       Float?      // 좌표(Y) -> 경도
+  faxs      FaxRecord[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model FaxRecord {
+  id          String   @id @default(cuid())
+  faxNumber   String
+  pharmacyId  String
+  userId      String
+  createdAt   DateTime @default(now())
+
+  pharmacy    Pharmacy @relation(fields: [pharmacyId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([pharmacyId])
+  @@index([userId])
+}
