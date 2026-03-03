@@ -68,20 +68,20 @@ export default function Map() {
     return (
         <div className="relative w-full h-full">
             {/* Top Navigation */}
-            <div className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center z-10 pointers-events-none">
-                <div className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/40 flex items-center space-x-3 pointers-events-auto">
+            <div className="absolute top-4 left-4 right-4 z-10 flex flex-col sm:flex-row sm:justify-between items-start sm:items-center space-y-3 sm:space-y-0 pointers-events-none">
+                <div className="w-full sm:w-auto bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/40 flex items-center space-x-3 pointers-events-auto">
                     <div className="bg-blue-500 p-2 rounded-xl text-white">
                         <MapPin size={24} />
                     </div>
                     <div>
-                        <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                            집근처 약국 찾기
+                        <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                            약국 찾기
                         </h1>
                         <p className="text-xs text-gray-500 font-medium">처방전 FAX 번호 공유</p>
                     </div>
                 </div>
 
-                <div className="pointers-events-auto flex items-center space-x-4">
+                <div className="pointers-events-auto flex items-center w-full sm:w-auto justify-end">
                     {session ? (
                         <div className="bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-white/40 flex items-center space-x-4">
                             <span className="text-sm font-semibold text-gray-700">
