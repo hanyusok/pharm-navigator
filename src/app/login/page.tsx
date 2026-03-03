@@ -37,7 +37,7 @@ export default function Login() {
                 router.push("/");
                 router.refresh();
             }
-        } catch (error) {
+        } catch {
             setError("An error occurred during login.");
         } finally {
             setLoading(false);
@@ -105,8 +105,38 @@ export default function Login() {
                     </button>
                 </form>
 
+                <div className="mt-8 flex items-center justify-center space-x-4">
+                    <div className="flex-1 border-t border-gray-200"></div>
+                    <span className="text-sm text-gray-400 font-medium">OR</span>
+                    <div className="flex-1 border-t border-gray-200"></div>
+                </div>
+
+                <div className="mt-6 space-y-3">
+                    <button
+                        type="button"
+                        onClick={() => signIn("google", { callbackUrl: "/" })}
+                        className="w-full py-3.5 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-2xl font-bold transition-colors flex items-center justify-center shadow-sm"
+                    >
+                        Sign in with Google
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => signIn("naver", { callbackUrl: "/" })}
+                        className="w-full py-3.5 bg-[#03C75A] hover:bg-[#02b351] text-white rounded-2xl font-bold transition-colors flex items-center justify-center shadow-sm"
+                    >
+                        Sign in with Naver
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => signIn("kakao", { callbackUrl: "/" })}
+                        className="w-full py-3.5 bg-[#FEE500] hover:bg-[#e6cf00] text-gray-900 rounded-2xl font-bold transition-colors flex items-center justify-center shadow-sm"
+                    >
+                        Sign in with Kakao
+                    </button>
+                </div>
+
                 <p className="mt-8 text-center text-sm text-gray-600 font-medium">
-                    Don't have an account?{" "}
+                    Don&apos;t have an account?{" "}
                     <Link href="/register" className="text-blue-600 hover:text-blue-700 font-bold hover:underline">
                         Register now
                     </Link>

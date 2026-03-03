@@ -21,8 +21,8 @@ type Pharmacy = {
     lng: number;
     address: string;
     phone: string;
-    typeDesc: string;
-    openDate: string;
+    typeDesc?: string | null;
+    openDate?: string | null;
     faxs?: FaxRecord[];
 };
 
@@ -129,13 +129,6 @@ export function Sidebar({ pharmacy: initialPharmacy, onClose }: SidebarProps) {
                                 <div className="flex items-center space-x-3 text-gray-700">
                                     <Phone className="text-blue-500 shrink-0" size={20} />
                                     <p className="text-sm font-medium">{pharmacy.phone}</p>
-                                </div>
-                            )}
-
-                            {pharmacy.openDate && (
-                                <div className="flex items-center space-x-3 text-gray-700">
-                                    <Clock className="text-blue-500 shrink-0" size={20} />
-                                    <p className="text-sm">Opened: {pharmacy.openDate}</p>
                                 </div>
                             )}
                         </div>

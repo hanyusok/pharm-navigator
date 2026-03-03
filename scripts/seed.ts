@@ -6,8 +6,26 @@ const prisma = new PrismaClient();
 
 const BATCH_SIZE = 1000;
 
+interface PharmacySeedData {
+    id: string;
+    name: string;
+    typeCode: string;
+    typeDesc: string;
+    cityCode: string;
+    cityDesc: string;
+    sigunguCode: string;
+    sigunguDesc: string;
+    dong: string;
+    zipCode: string;
+    address: string;
+    phone: string;
+    openDate: string;
+    lat: number | null;
+    lng: number | null;
+}
+
 async function main() {
-    const pharmacies: any[] = [];
+    const pharmacies: PharmacySeedData[] = [];
     let batchCount = 0;
 
     console.log("Reading CSV file...");

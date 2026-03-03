@@ -37,7 +37,7 @@ export default function Register() {
                 const data = await res.json();
                 setError(data.message || "An error occurred during registration.");
             }
-        } catch (err) {
+        } catch {
             setError("An error occurred during registration.");
         } finally {
             setLoading(false);

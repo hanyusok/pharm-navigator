@@ -19,6 +19,12 @@ export async function GET(req: Request) {
                     gte: swLng,
                     lte: neLng,
                 },
+                phone: {
+                    not: null,
+                },
+                NOT: {
+                    phone: "",
+                },
             },
             take: 200, // Limit to 200 to prevent overloading map
             select: {

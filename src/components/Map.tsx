@@ -24,6 +24,9 @@ type Pharmacy = {
     lng: number;
     address: string;
     phone: string;
+    typeDesc?: string | null;
+    openDate?: string | null;
+    faxs?: any[];
 };
 
 export default function Map() {
@@ -72,9 +75,9 @@ export default function Map() {
                     </div>
                     <div>
                         <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                            Pharmacy Navigator
+                            집근처 약국 찾기
                         </h1>
-                        <p className="text-xs text-gray-500 font-medium">Community Driven</p>
+                        <p className="text-xs text-gray-500 font-medium">처방전 FAX 번호 공유</p>
                     </div>
                 </div>
 

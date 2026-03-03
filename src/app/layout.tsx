@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pharmacy Navigator",
-  description: "Find national pharmacies and share community FAX numbers.",
+  title: "가까운 약국찾기",
+  description: "가까운 약국 찾아서 FAX 번호 공유",
 };
 
 export default function RootLayout({
